@@ -15,11 +15,11 @@ export const restaurant = {
     line3: "بجوار كازيون",
     full: "بنها - شارع الموقف - أمام مدرسة أنس بن مالك - بجوار كازيون",
   },
-  mapsUrl: "https://maps.google.com/?q=" + encodeURIComponent("مشويات أبو الحديد بنها شارع الموقف امام مدرسة أنس بن مالك"),
+  mapsUrl: "https://maps.app.goo.gl/wQKs2bHq7iCfTmF57",
   // ملاحظة: لا توجد روابط سوشيال ميديا فعلية بعد — استبدل "#" بالروابط الحقيقية عند توفرها
   social: {
-    facebook: "#",
-    instagram: "#",
-    tiktok: "#",
+    facebook: "https://www.facebook.com/AboElhadedBenha",
+    instagram: "https://www.instagram.com/abo_elhaded10/",
+    tiktok: "https://www.tiktok.com/@abo.hadid25",
   },
 };

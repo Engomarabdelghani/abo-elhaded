@@ -77,6 +77,17 @@ export default function Footer() {
 
       <p className="text-center text-cream-dim/60 text-xs mt-10">
         © {year} {restaurant.name} — جميع الحقوق محفوظة
+        <br className="sm:hidden" />
+        <span className="sm:mx-1.5">·</span>
+        Developed by{" "}
+        <a
+          href="https://engomarportfolio.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gold hover:underline"
+        >
+          Omar Abdelghani
+        </a>
       </p>
     </footer>
   );
