@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "El Messiri", "Tajawal", sans-serif;
+  --font-body: "Tajawal", sans-serif;
+
+  --color-ink: #0E0605;
+  --color-char: #1C0D0C;
+  --color-burgundy: #3A0E10;
+  --color-red: #8C1810;
+  --color-ember: #C9391E;
+  --color-flame: #E8623A;
+  --color-gold: #D8A857;
+  --color-cream: #F7ECDD;
+  --color-cream-dim: #C9B9A8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-ember);
+  color: var(--color-cream);
+}
+
+/* thin, elegant scrollbar for horizontal category rail */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* brush-stroke behind section titles, echoing the printed menu's identity */
+.brush-stroke {
+  position: relative;
+  display: inline-block;
+}
+.brush-stroke::before {
+  content: "";
+  position: absolute;
+  inset: 0.15em -0.3em;
+  background: linear-gradient(100deg, var(--color-red) 0%, var(--color-ember) 55%, var(--color-red) 100%);
+  transform: rotate(-1.2deg) scaleY(1.05);
+  border-radius: 3px 12px 4px 14px / 60% 40% 60% 40%;
+  z-index: 0;
+  opacity: 0.92;
+}
+.brush-stroke > span {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
