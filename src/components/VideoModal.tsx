@@ -49,9 +49,9 @@ export default function VideoModal({ video, onClose }: Props) {
               <X size={28} />
             </button>
 
-            <div className="aspect-video w-full rounded-xl overflow-hidden bg-char border border-red/30">
+            <div className="aspect-[9/16] max-h-[calc(100vh-2rem)] sm:aspect-video sm:max-h-none w-full rounded-xl overflow-hidden bg-char border border-red/30">
               {video.src ? (
-                <video src={video.src} controls autoPlay playsInline className="w-full h-full object-cover" />
+                <video src={video.src} controls autoPlay playsInline className="w-full h-full object-contain bg-black" />
               ) : (
                 <div className="w-full h-full flex flex-col items-center justify-center text-center px-6 gap-2"
                   style={{ background: "linear-gradient(135deg, var(--color-burgundy), var(--color-red))" }}

@@ -14,6 +14,8 @@ export const videos: RestaurantVideo[] = [
     title: "مشوياتنا على الفحم",
     description: "شوف طريقة الشوي على الفحم زي زمان",
     duration: "0:45",
+    src: "/videos/hero.mp4",
+    poster: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: "kofta-prep",

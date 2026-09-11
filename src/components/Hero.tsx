@@ -76,16 +76,16 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-          className="relative mx-auto w-full max-w-md md:max-w-none"
+          className="relative mx-auto w-full max-w-[360px] sm:max-w-[400px]"
         >
           {/* rough painted frame behind the card */}
-          <div className="absolute -inset-2.5 rounded-[1.4rem] bg-ember/90 -rotate-1" />
-          <div className="absolute -inset-2.5 rounded-[1.4rem] border-2 border-gold/40 rotate-1 pointer-events-none" />
+          <div className="absolute -inset-3 rounded-[2rem] bg-ember/90 -rotate-1 shadow-[0_18px_45px_rgba(199,67,39,0.35)]" />
+          <div className="absolute -inset-3 rounded-[2rem] border-2 border-gold/50 rotate-1 pointer-events-none" />
 
           <button
             onClick={() => setPlayHero(true)}
             aria-label="تشغيل فيديو المطعم"
-            className="group relative w-full aspect-[4/3] sm:aspect-video rounded-2xl overflow-hidden border-4 border-ink focus:outline-none"
+            className="group relative block w-full aspect-[9/16] rounded-[1.7rem] overflow-hidden border-[5px] border-ink shadow-[0_20px_55px_rgba(0,0,0,0.35)] focus:outline-none"
           >
             {heroVideo?.src ? (
               <video
@@ -96,7 +96,7 @@ export default function Hero() {
                 loop
                 playsInline
                 preload="metadata"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover object-center bg-black"
               />
             ) : (
               <GrillIllustration className="absolute inset-0 w-full h-full" seed={2} tone="ember" />

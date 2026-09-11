@@ -49,10 +49,14 @@ export default function VideoSection() {
             {videos.map((v, i) => (
               <motion.div
                 key={v.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.45, delay: i * 0.07 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                animate={{ y: [0, -5, 0] }}
+                transition={{
+                  opacity: { duration: 0.35, delay: i * 0.06 },
+                  y: { duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: i * 0.18 },
+                }}
                 className="shrink-0 w-[72%] sm:w-[45%] lg:w-[30%] snap-center"
               >
                 <VideoCard video={v} onPlay={() => setActive(v)} seed={i} />
