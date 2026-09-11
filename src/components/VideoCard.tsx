@@ -15,7 +15,7 @@ export default function VideoCard({ video, onPlay, seed = 0 }: Props) {
       onClick={onPlay}
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
-      className="group relative w-full text-start overflow-hidden rounded-2xl border border-cream/10 bg-char aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-ember"
+      className="group relative w-full text-start overflow-hidden rounded-2xl border border-cream/10 bg-char aspect-[9/16] focus:outline-none focus-visible:ring-2 focus-visible:ring-ember"
       aria-label={`تشغيل فيديو: ${video.title}`}
     >
       {video.src ? (
@@ -27,7 +27,7 @@ export default function VideoCard({ video, onPlay, seed = 0 }: Props) {
           loop
           playsInline
           preload="metadata"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-contain bg-black"
         />
       ) : (
         <GrillIllustration className="absolute inset-0 w-full h-full" seed={seed} tone={seed % 2 === 0 ? "ember" : "gold"} />
