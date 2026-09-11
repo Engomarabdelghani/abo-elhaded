@@ -39,7 +39,7 @@ export const videos: RestaurantVideo[] = [
   },
   {
     id: "soany",
-    title: "سواني",
+    title: "صواني",
     description: "سوااني ابو الحديد متتفوتش ",
     duration: "0:37",
     src: "/videos/soany.mp4",
