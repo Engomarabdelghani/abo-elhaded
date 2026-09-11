@@ -25,7 +25,7 @@ export const videos: RestaurantVideo[] = [
   },
   {
     id: "atmosphere",
-    title: "أجواء المطعم",
+    title: " البسبوسة اختراع 😉",
     description: "جولة سريعة في أجواء أبو الحديد",
     duration: "0:58",
   },
