@@ -11,7 +11,7 @@ import VideoModal from "./VideoModal";
 export default function Hero() {
   const [playHero, setPlayHero] = useState(false);
   const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
-  const heroVideo = videos[0];
+  const heroVideo = videos.find((v) => v.id === "hero") || null;
 
   return (
     <section
