@@ -55,7 +55,7 @@ export default function Hero() {
 
           <div className="mt-8 flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-3">
             <button
-              onClick={() => setPlayHero(true)}
+              onClick={() => scrollTo("#videos")}
               className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-ember text-cream font-display font-bold text-base sm:text-lg shadow-lg shadow-ember/30 hover:brightness-110 active:scale-95 transition flex items-center justify-center gap-2"
             >
               <Play size={20} fill="currentColor" />
