@@ -20,6 +20,7 @@ export const menu: MenuCategory[] = [
       { id: "sheesh-warak", name: "شيش ", weightPrices: { quarter: 150, third: 225, half: 300, threeQuarter: 450, kilo: 600 } },
       { id: "farkha", name: "فراخ", weightPrices: { half: 190, threeQuarter: 300, kilo: 380 }, description: "ربع ورك 110 ج - ربع صدر 140 ج" },    
       { id: "basbousa-grill", name: "بسبوسة ", weightPrices: { quarter: 250, third: 375, half: 500, threeQuarter: 750, kilo: 1000 } },
+      { id: "fosdkia-grill", name: "الفسدقية ", weightPrices: { quarter: 250, third: 375, half: 500, threeQuarter: 750, kilo: 1000 } },
       { id: "sogo2", name: "سجق", weightPrices: { quarter: 150, half: 300, threeQuarter: 450, kilo: 600 } },
       { id: "nifa", name: "نيفة", weightPrices: { half: 450, threeQuarter: 600, kilo: 1200 } },
       { id: "ouzi", name: "أوزي", weightPrices: { half: 450, threeQuarter: 600, kilo: 1200 } },

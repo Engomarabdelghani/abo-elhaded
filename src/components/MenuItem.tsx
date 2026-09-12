@@ -34,8 +34,20 @@ function smallestPrice(obj: Record<string, number | undefined>, order: string[])
 }
 
 export default function MenuItem({ item }: Props) {
-  const hasWeight = item.weightPrices && Object.values(item.weightPrices).some((v) => typeof v === "number");
-  const hasSize = item.sizePrices && Object.values(item.sizePrices).some((v) => typeof v === "number");
+  const weightKeys = item.weightPrices
+    ? weightOrder.filter((k) => typeof item.weightPrices![k as keyof typeof item.weightPrices] === "number")
+    : [];
+  const sizeKeys = item.sizePrices
+    ? sizeOrder.filter((k) => typeof item.sizePrices![k as keyof typeof item.sizePrices] === "number")
+    : [];
+
+  // a single defined size (e.g. most sandwiches only have "small") isn't a
+  // real choice, so show it as a plain price instead of a "صغير" chip
+  const singleSizePrice = sizeKeys.length === 1 ? item.sizePrices![sizeKeys[0] as keyof typeof item.sizePrices] : undefined;
+
+  const hasWeight = weightKeys.length > 0;
+  const hasSize = sizeKeys.length > 1;
+  const isPlainPrice = typeof item.price === "number" && !hasWeight && !hasSize && singleSizePrice === undefined;
 
   const fromPrice = hasWeight
     ? smallestPrice(item.weightPrices as Record<string, number>, weightOrder)
@@ -58,22 +70,28 @@ export default function MenuItem({ item }: Props) {
           )}
         </span>
 
-        {typeof item.price === "number" && !hasWeight && !hasSize && (
+        {isPlainPrice && (
           <span className="font-display font-bold text-ember text-sm sm:text-base whitespace-nowrap shrink-0 flex items-baseline gap-1.5">
             {item.isOffer && typeof item.offerPrice === "number" ? (
               <>
                 <span className="text-gold">{fmt(item.offerPrice)} ج</span>
-                <span className="text-cream-dim/50 text-xs line-through">{fmt(item.price)} ج</span>
+                <span className="text-cream-dim/50 text-xs line-through">{fmt(item.price!)} ج</span>
               </>
             ) : (
-              `${fmt(item.price)} ج`
+              `${fmt(item.price!)} ج`
             )}
+          </span>
+        )}
+
+        {singleSizePrice !== undefined && (
+          <span className="font-display font-bold text-ember text-sm sm:text-base whitespace-nowrap shrink-0">
+            {fmt(singleSizePrice)} ج
           </span>
         )}
 
         {fromPrice !== undefined && (
           <span className="font-display font-bold text-ember text-sm sm:text-base whitespace-nowrap shrink-0">
-            من {fmt(fromPrice)} ج
+                {fmt(fromPrice)} ج
           </span>
         )}
       </div>
@@ -83,21 +101,35 @@ export default function MenuItem({ item }: Props) {
       )}
 
       {hasWeight && (
-        <p className="text-cream-dim/60 text-[11px] mt-1 leading-relaxed">
-          {weightOrder
-            .filter((k) => typeof item.weightPrices![k as keyof typeof item.weightPrices] === "number")
-            .map((k) => `${weightLabels[k]} ${fmt(item.weightPrices![k as keyof typeof item.weightPrices] as number)}`)
-            .join(" · ")}
-        </p>
+        <div className="flex flex-wrap gap-1.5 mt-2">
+          {weightKeys.map((k) => (
+            <span
+              key={k}
+              className="inline-flex items-center gap-1 rounded-full border border-gold/25 bg-gold/5 px-2.5 py-1 text-[11px] leading-none"
+            >
+              <span className="text-cream-dim/70">{weightLabels[k]}</span>
+              <span className="text-gold font-display font-bold">
+                {fmt(item.weightPrices![k as keyof typeof item.weightPrices] as number)}
+              </span>
+            </span>
+          ))}
+        </div>
       )}
 
       {hasSize && (
-        <p className="text-cream-dim/60 text-[11px] mt-1 leading-relaxed">
-          {sizeOrder
-            .filter((k) => typeof item.sizePrices![k as keyof typeof item.sizePrices] === "number")
-            .map((k) => `${sizeLabels[k]} ${fmt(item.sizePrices![k as keyof typeof item.sizePrices] as number)}`)
-            .join(" · ")}
-        </p>
+        <div className="flex flex-wrap gap-1.5 mt-2">
+          {sizeKeys.map((k) => (
+            <span
+              key={k}
+              className="inline-flex items-center gap-1 rounded-full border border-gold/25 bg-gold/5 px-2.5 py-1 text-[11px] leading-none"
+            >
+              <span className="text-cream-dim/70">{sizeLabels[k]}</span>
+              <span className="text-gold font-display font-bold">
+                {fmt(item.sizePrices![k as keyof typeof item.sizePrices] as number)}
+              </span>
+            </span>
+          ))}
+        </div>
       )}
     </li>
   );

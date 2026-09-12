@@ -23,9 +23,6 @@ export type MenuItem = {
   image?: string;
   available?: boolean;
   isPlaceholder?: boolean;
-  // ضع isOffer: true على أي صنف عشان يظهر تلقائيًا في قسم "عروض" منفصل
-  // في أعلى الصفحة، بالإضافة لمكانه العادي في فئته. لو حطيت offerPrice
-  // هيظهر السعر الأصلي مشطوب بجانب سعر العرض.
   isOffer?: boolean;
   offerPrice?: number;
 };
