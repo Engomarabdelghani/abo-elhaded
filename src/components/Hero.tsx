@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ChevronDown, Play, UtensilsCrossed } from "lucide-react";
 import logo from "../assets/logo.png";
 import { restaurant } from "../data/restaurant";
-import { videos } from "../data/videos";
+import { heroVideo } from "../data/videos";
 import HeroBackdrop from "./HeroBackdrop";
 import GrillIllustration from "./GrillIllustration";
 import VideoModal from "./VideoModal";
@@ -12,8 +12,6 @@ import { FacebookIcon, InstagramIcon, TikTokIcon } from "./SocialIcons";
 export default function Hero() {
   const [playHero, setPlayHero] = useState(false);
   const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
-  const heroVideo = videos.find((v) => v.id === "hero") || null;
-
   return (
     <section
       id="home"

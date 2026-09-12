@@ -8,27 +8,28 @@ export type RestaurantVideo = {
 };
 
 // ملاحظة: روابط الفيديوهات (src) والمدد (duration) الحقيقية غير متوفرة حاليًا — استبدلها بالبيانات الفعلية عند توفرها.
+export const heroVideo: RestaurantVideo = {
+  id: "hero",
+  title: "ابو الحديد",
+  description: "مين هو أبو الحديد !!",
+  duration: "0:27",
+  src: "/videos/hero.mp4",
+};
+
 export const videos: RestaurantVideo[] = [
   {
-    id: "hero",
-    title: " ابو الحديد ",
-    description: "مين هو أبو الحديد !!",
-    duration: "0:27",
-    src: "/videos/hero.mp4",
-    },
-  {
     id: "About",
-    title: " عن المطعم  ",
-    description: "شوف المطعم من جوه وعيش أجواءه",
+    title: " أجواء ابوالحديد ",
+    description: "عيش الاجواء مع ابو الحديد",
     duration: "0:27",
     src: "/videos/About.mp4",
     },
   {
-    id: "kofta-prep",
-    title: "تحضير الكفتة",
-    description: "من التتبيلة للسيخ بأيدي الشيف",
+    id: "foskia-prep",
+    title: "تحضير الفسدقية",
+    description: "الفسدقية اختراااع ",
     duration: "0:42",
-    src: "/videos/kofta.mp4",
+    src: "/videos/fosdkia.mp4",
   },
   {
     id: "basbousa",
