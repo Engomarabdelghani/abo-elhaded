@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronDown, Play, UtensilsCrossed } from "lucide-react";
+import { ChevronDown, Play, UtensilsCrossed, Clock } from "lucide-react";
 import logo from "../assets/logo.png";
 import { restaurant } from "../data/restaurant";
 import { heroVideo } from "../data/videos";
@@ -52,6 +52,14 @@ export default function Hero() {
             {restaurant.description}
           </p>
 
+          {/* Working Hours */}
+          <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/40 bg-ink/40 text-gold mx-auto md:mx-0">
+            <Clock size={16} />
+            <span className="font-display font-semibold text-sm sm:text-base">
+              مواعيدنا يوميًا من ١٢ ظهرًا حتى ٢ صباحًا
+            </span>
+          </div>
+
           <div className="mt-8 flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-3">
             <button
               onClick={() => scrollTo("#videos")}
@@ -68,7 +76,7 @@ export default function Hero() {
               استعرض المنيو
             </button>
           </div>
-          ```tsx
+
           <div className="mt-8 flex flex-col items-center w-full">
             {/* Social Heading */}
             <div className="flex items-center justify-center gap-4 mb-3">
@@ -142,48 +150,45 @@ export default function Hero() {
           </div>
         </motion.div>
 
+        {/* Framed video card — renders on the left in RTL */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.94 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+          className="relative mx-auto w-full max-w-[360px] sm:max-w-[400px]"
+        >
+          {/* rough painted frame behind the card */}
+          <div className="absolute -inset-3 rounded-[2rem] bg-ember/90 -rotate-1 shadow-[0_18px_45px_rgba(199,67,39,0.35)]" />
+          <div className="absolute -inset-3 rounded-[2rem] border-2 border-gold/50 rotate-1 pointer-events-none" />
 
-        {/* Framed video card — renders on the left in RTL */ }
-  <motion.div
-    initial={{ opacity: 0, scale: 0.94 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-    className="relative mx-auto w-full max-w-[360px] sm:max-w-[400px]"
-  >
-    {/* rough painted frame behind the card */}
-    <div className="absolute -inset-3 rounded-[2rem] bg-ember/90 -rotate-1 shadow-[0_18px_45px_rgba(199,67,39,0.35)]" />
-    <div className="absolute -inset-3 rounded-[2rem] border-2 border-gold/50 rotate-1 pointer-events-none" />
-
-    <button
-      onClick={() => setPlayHero(true)}
-      aria-label="تشغيل فيديو المطعم"
-      className="group relative block w-full aspect-[9/16] rounded-[1.7rem] overflow-hidden border-[5px] border-ink shadow-[0_20px_55px_rgba(0,0,0,0.35)] focus:outline-none"
-    >
-      {heroVideo?.src ? (
-        <video
-          src={heroVideo.src}
-          poster={heroVideo.poster}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="absolute inset-0 h-full w-full object-cover object-center bg-black"
-        />
-      ) : (
-        <GrillIllustration className="absolute inset-0 w-full h-full" seed={2} tone="ember" />
-      )}
-      <div className="absolute inset-0 bg-black/25 group-hover:bg-black/15 transition-colors" />
-      <span className="absolute inset-0 flex items-center justify-center">
-        <span className="grid place-items-center h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-cream/90 text-red shadow-xl group-hover:scale-110 transition-transform">
-          <Play size={30} fill="currentColor" className="ms-1" />
-        </span>
-      </span>
-    </button>
-
-  </motion.div>
-      </div >
-
+          <button
+            onClick={() => setPlayHero(true)}
+            aria-label="تشغيل فيديو المطعم"
+            className="group relative block w-full aspect-[9/16] rounded-[1.7rem] overflow-hidden border-[5px] border-ink shadow-[0_20px_55px_rgba(0,0,0,0.35)] focus:outline-none"
+          >
+            {heroVideo?.src ? (
+              <video
+                src={heroVideo.src}
+                poster={heroVideo.poster}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="absolute inset-0 h-full w-full object-cover object-center bg-black"
+              />
+            ) : (
+              <GrillIllustration className="absolute inset-0 w-full h-full" seed={2} tone="ember" />
+            )}
+            <div className="absolute inset-0 bg-black/25 group-hover:bg-black/15 transition-colors" />
+            <span className="absolute inset-0 flex items-center justify-center">
+              <span className="grid place-items-center h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-cream/90 text-red shadow-xl group-hover:scale-110 transition-transform">
+                <Play size={30} fill="currentColor" className="ms-1" />
+              </span>
+            </span>
+          </button>
+        </motion.div>
+      </div>
 
       <motion.button
         aria-label="انتقل للأسفل"
@@ -197,6 +202,6 @@ export default function Hero() {
       </motion.button>
 
       <VideoModal video={playHero ? heroVideo : null} onClose={() => setPlayHero(false)} />
-    </section >
+    </section>
   );
 }
