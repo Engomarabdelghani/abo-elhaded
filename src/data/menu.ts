@@ -105,7 +105,7 @@ export const menu: MenuCategory[] = [
       { id: "mahashi-moshakal", name: "محاشي مشكل", price: 100 },
       { id: "sambousa", name: "سمبوسة (4 قطع)", price: 60 },
       { id: "mombar", name: "ممبار (للكيلو)", price: 440 },
-      { id: "ra2a2-lahma", name: "رقاق باللحمة", price: 150 },
+      { id: "ra2a2-lahma", name: "رقاق باللحمة", price: 250 },
       { id: "tabaq-mo2ablat", name: "طبق مقبلات", price: 180 },
     ],
   },
