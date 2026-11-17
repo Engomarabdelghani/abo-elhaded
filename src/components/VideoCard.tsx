@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Play } from "lucide-react";
 import type { RestaurantVideo } from "../data/videos";
 import GrillIllustration from "./GrillIllustration";
 
@@ -39,12 +38,6 @@ export default function VideoCard({ video, onPlay, seed = 0 }: Props) {
           {video.duration}
         </span>
       )}
-
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span className="grid place-items-center h-12 w-12 rounded-full bg-cream/90 text-red shadow-lg group-hover:scale-110 transition-transform">
-          <Play size={20} fill="currentColor" className="ms-0.5" />
-        </span>
-      </div>
 
       <div className="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-t from-black/75 to-transparent">
         <h3 className="font-display font-bold text-cream text-sm sm:text-base">{video.title}</h3>

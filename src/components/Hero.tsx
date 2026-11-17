@@ -181,11 +181,6 @@ export default function Hero() {
               <GrillIllustration className="absolute inset-0 w-full h-full" seed={2} tone="ember" />
             )}
             <div className="absolute inset-0 bg-black/25 group-hover:bg-black/15 transition-colors" />
-            <span className="absolute inset-0 flex items-center justify-center">
-              <span className="grid place-items-center h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-cream/90 text-red shadow-xl group-hover:scale-110 transition-transform">
-                <Play size={30} fill="currentColor" className="ms-1" />
-              </span>
-            </span>
           </button>
         </motion.div>
       </div>
