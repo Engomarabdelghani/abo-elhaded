@@ -12,6 +12,14 @@ const weightLabels: Record<string, string> = {
   kilo: "كيلو",
 };
 
+const weightUnitLabels: Record<string, string> = {
+  quarter: "ربع كيلو",
+  third: "ثلث كيلو",
+  half: "نصف كيلو",
+  threeQuarter: "3/4 كيلو",
+  kilo: "كيلو",
+};
+
 const sizeLabels: Record<string, string> = {
   small: "صغير",
   large: "كبير",
@@ -91,7 +99,12 @@ export default function MenuItem({ item }: Props) {
 
         {fromPrice !== undefined && (
           <span className="font-display font-bold text-ember text-sm sm:text-base whitespace-nowrap shrink-0">
-                {fmt(fromPrice)} ج
+            {fmt(fromPrice)} ج
+            {hasWeight && weightKeys[0] && (
+              <span className="block text-cream-dim/70 text-[10px] sm:text-xs font-normal leading-tight">
+                {weightUnitLabels[weightKeys[0]]}
+              </span>
+            )}
           </span>
         )}
       </div>
